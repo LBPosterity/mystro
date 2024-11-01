@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+*
+{
+    box-sizing: border-box;
+}
+
+:root
+{
+    --size-base: 8px;
+
+    --size-0-5: calc(var(--size-base)*0.5);
+    --size-1: var(--size-base);
+    --size-2: calc(var(--size-base)*2);
+    --size-3: calc(var(--size-base)*3);
+    --size-4: calc(var(--size-base)*4);
+    --size-5: calc(var(--size-base)*5);
+    --size-6: calc(var(--size-base)*6);
+    --size-7: calc(var(--size-base)*7);
+    --size-8: calc(var(--size-base)*8);
+    --size-9: calc(var(--size-base)*9);
+    --size-10: calc(var(--size-base)*10);
+    --size-11: calc(var(--size-base)*11);
+    --size-12: calc(var(--size-base)*12);
+    --size-13: calc(var(--size-base)*13);
+    --size-14: calc(var(--size-base)*14);
+    --size-15: calc(var(--size-base)*15);
+    --size-16: calc(var(--size-base)*16);
+    --size-17: calc(var(--size-base)*17);
+    --size-18: calc(var(--size-base)*18);
+    --size-19: calc(var(--size-base)*19);
+    --size-20: calc(var(--size-base)*20);
+    --size-21: calc(var(--size-base)*21);
+    --size-22: calc(var(--size-base)*22);
+    --size-23: calc(var(--size-base)*23);
+    --size-24: calc(var(--size-base)*24);
+    --size-25: calc(var(--size-base)*25);
+    --size-26: calc(var(--size-base)*26);
+    --size-27: calc(var(--size-base)*27);
+    --size-28: calc(var(--size-base)*28);
+    --size-29: calc(var(--size-base)*29);
+    --size-30: calc(var(--size-base)*30);
+
+    --radius-sm: var(--size-0-5);
+    --radius-md: var(--size-1);
+    --radius-lg: var(--size-2);
+    --radius-round: 9999rem;
+
+    --black-value: 5, 9, 17;
+    --white-value: 255, 255, 255;
+
+    --black: rgba(var(--black-value), 1);
+    --white: rgba(var(--white-value), 1);
+
+    --body-size: 1.125rem;
+
+    --transition: 0.4s ease;
+    --transition-slow: 0.8s ease;
+
+}
+
+.brand-default
+{
+    --accent-light: #007EB5;
+    --accent-dark: #0D8BFF;
+    --accent-contrast: var(--white);
+    --brand-font: "Manrope", sans-serif;
+    --logo: url('logo-image.png');
+}
+
+
+.brand-a
+{
+    --accent-light: #9a00b5;
+    --accent-dark: #ba0dff;
+    --accent-contrast: var(--black);
+    --brand-font: Georgia, serif;
+    --logo: url('logo-image.png');
+}
+
+
+#mode-dark
+{
+    --bg-main: var(--black);
+    --bg-surface-1: rgba(var(--white-value), 0.04);
+    --bg-surface-2: rgba(var(--white-value), 0.02);
+    --bg-transparent: transparent;
+
+    --bg-subtle: linear-gradient(transparent 66%, var(--bg-surface-1) 100%);
+
+    --text: var(--white);
+    --text-light: var(--black);
+    --text-light: rgba(255, 255, 255, 0.66);
+    --text-disabled: rgba(255, 255, 255, 0.5);
+
+    --accent: var(--accent-dark);
+
+    --active: #00EC97;
+    --active-contrast: var(--black);
+
+    --error: #FF2171;
+    --error-contrast: var(--white);
+
+    --border: rgba(var(--white-value), 0.24);
+    --border-light: rgba(var(--white-value), 0.12);
+    --border-subtle: rgba(var(--white-value), 0.06);
+}
+
+#mode-light
+{
+    --bg-main: var(--white);
+    --bg-surface-1: rgba(var(--black-value), 0.04);
+    --bg-surface-2: rgba(var(--black-value), 0.02);
+    --bg-transparent: transparent;
+
+    --bg-subtle: linear-gradient(transparent 66%, var(--bg-surface-1) 100%);
+
+    --text: var(--black);
+    --text-light: var(--white);
+    --text-light: rgba(0, 0, 0, 0.66);
+    --text-disabled: rgba(0, 0, 0, 0.5);
+
+    --accent: var(--accent-light);
+
+    --active: #00BA77;
+    --active-contrast: var(--black);
+
+    --error: #FF2171;
+    --error-contrast: var(--white);
+
+    --border: rgba(var(--black-value), 0.20);
+    --border-light: rgba(var(--black-value), 0.10);
+    --border-subtle: rgba(var(--black-value), 0.20);
+}
+
+
+/* Typography -------------------------------- */
+
+*
+{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    transition: var(--transition);
+}
+
+
+
+
+.title, .title-md, .title-sm, .time
+{
+    font-family: var(--brand-font);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.title
+{
+    font-size: var(--size-5);
+}
+
+
+.title-md
+{
+    font-size: var(--size-4);
+}
+
+.title-sm
+{
+    font-size: var(--size-3);
+}
+
+
+body
+{
+  font-family: var(--brand-font);
+  font-size: var(--body-text);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@media  screen and (max-width: 1280px ) {
+
+    :root
+    {
+        --body-text: 0.875rem;
+    }
+
+    .title
+    {
+        font-size: var(--size-4);
+    }
+
+
+    .title-md
+    {
+        font-size: var(--size-3);
+    }
+
+    .title-sm
+    {
+        font-size: var(--size-2);
+    }
+    
+}
+
+
+
+/* Hero Background */
+
+
+html
+{
+    overflow-x: hidden;
+}
+
+body
+{
+    position: relative;
+    background: var(--bg-main);
+    color: var(--text);
+    font-family: var(--brand-font);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    min-height: 100vh;
+}
+
+body::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/bg-texture.gif');
+    background-size: 25%;
+    opacity: 0.03;
+    z-index: -1;
+}
+
+        @supports (mix-blend-mode: overlay) {
+            body::before
+            {
+                mix-blend-mode: overlay;
+                opacity: 0.33;
+            }
+        }
+
+body::after
+{
+    content: '';
+    position: absolute;
+    top: -33vw;
+    right: -20vw;
+    --size: 85vw;
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(var(--accent) 0%, transparent 66%);
+    border-radius: var(--radius-round);
+    opacity: 0.24;
+    z-index: -1;
+}

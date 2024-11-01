@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta name="Artificial Intelligence User Experience Design Patterns" content="">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Luke Bennis">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+
+
+  <title>Mystro Panel Mockup</title>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <link rel="stylesheet" href="primitive-styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="component-styles.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@200..800&family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+
+  section
+  {
+    width: min(1280px, 90%);
+    margin-inline: auto;
+    padding-block: 4vh;
+  }
+
+  .card-wrapper
+{
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-3);
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 800px) {
+    .card-wrapper
+    {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+  
+
+<body id="mode-dark" class="brand-default">
+
+
+
+<section>
+    <div class="title">Interaction Examples<br><br></div>
+
+
+  <div class="card-wrapper source-panel">
+
+    <div class="card-source anim-touch">
+      <div class="indicator">
+        <i data-feather="check"></i>
+      </div>
+      <div class="icon">
+        <i data-feather="grid"></i>
+      </div>
+      <div class="label">
+        Card Label
+      </div>
+  
+    </div>
+
+
+      <div class="card-source anim-touch connected">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+        <div class="status">
+          <span></span>
+        </div>
+
+      </div>
+
+      <div class="card-source anim-touch disabled">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+
+      </div>
+
+  </div>
+
+  <div class="card-wrapper">
+
+    <div class="menu-card anim-touch">
+
+      <div class="content-wrapper">
+        <div class="label">
+          Card Label
+          <p>Card description text goes here</p>
+        </div>
+      </div>
+
+      <div class="select-wrapper">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p><br><br></p>
+
+    <div class="card-wrapper">
+
+    <button class="btn">Button Default</button>
+
+    <button class="btn btn-lg">Button Large</button>
+
+    <button class="btn btn-icon-only"><i data-feather="check"></i></button>
+
+    <button class="btn btn-lg btn-icon-only"><i data-feather="check"></i></button>
+
+    <p><br><br></p>
+
+    </div>
+
+    <p><br><br></p>
+
+    <div class="card-wrapper">
+
+      <div class="btn-group-wrapper">
+        <p>Group Label</p>
+        <div class="btn-group">
+          <button class="btn">Button A</button>
+          <button class="btn">Button B</button>
+          <button class="btn">Button C</button>
+          <button class="btn">Button D</button>
+        </div>
+
+      </div>
+  </div>
+
+
+
+  </div>
+
+</section>
+
+<p><br><br></p>
+
+<section>
+  <div class="title">Connected Source<br><br></div>
+
+  <div class="card-wrapper source-panel">
+
+  <div id="disconnected-source" class="card-source anim-touch disabled">
+    <div class="indicator">
+      <i data-feather="check"></i>
+    </div>
+    <div class="icon">
+      <i data-feather="grid"></i>
+    </div>
+    <div class="label">
+      Card Label
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+<p><br><br></p>
+
+<section>
+  <div class="title">Login Animation<br><br></div>
+
+  <div class="card-wrapper">
+
+      <div class="login-access">
+
+        <div class="login-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 81">
+            <path d="M10.25 42.0033V48.3783C10.25 49.5736 9.1875 50.5033 8.125 50.5033C6.92969 50.5033 6 49.5736 6 48.3783V42.0033C6 23.2767 21.1406 8.0033 40 8.0033C50.625 8.0033 60.1875 12.9174 66.4297 20.6205C67.0938 21.5502 66.9609 22.8783 66.0312 23.6752C65.1016 24.3392 63.7734 24.2064 63.1094 23.2767C57.6641 16.6361 49.2969 12.2533 40 12.2533C23.5312 12.2533 10.25 25.6674 10.25 42.0033ZM72.6719 32.972C73.4688 35.8939 74 38.9486 74 42.0033V48.3783C74 49.5736 72.9375 50.5033 71.875 50.5033C70.6797 50.5033 69.75 49.5736 69.75 48.3783V42.0033C69.75 39.347 69.3516 36.6908 68.5547 34.1674C68.2891 32.972 68.9531 31.7767 70.1484 31.5111C71.2109 31.2455 72.4062 31.9095 72.6719 32.972ZM40 18.6283H39.8672C52.8828 18.6283 63.2422 29.1205 63.2422 42.0033V45.3236C63.2422 49.308 63.1094 53.2924 62.5781 57.2767C62.4453 58.3392 61.5156 59.0033 60.4531 59.0033C59.125 59.0033 58.1953 57.9408 58.3281 56.6127C58.8594 52.8939 59.125 49.1752 59.125 45.3236V42.0033C59.125 31.5111 50.4922 22.8783 40 22.8783C37.6094 22.8783 35.3516 23.4095 33.2266 24.0736C32.4297 24.472 31.3672 24.2064 30.7031 23.5424C29.7734 22.4799 30.0391 20.7533 31.3672 20.3549C34.0234 19.2924 36.9453 18.6283 40 18.6283ZM25.2578 26.9955C25.9219 27.7924 25.9219 29.1205 25.125 29.9174C22.4688 33.2377 20.875 37.4877 20.875 42.0033V45.3236C20.875 49.4408 20.3438 53.558 19.2812 57.5424C19.0156 58.472 18.2188 59.0033 17.2891 59.0033C15.8281 59.0033 14.8984 57.6752 15.1641 56.347C16.0938 52.7611 16.625 49.0424 16.625 45.3236V42.0033C16.625 36.2924 18.6172 30.9799 22.2031 26.8627C23 25.933 24.4609 26.0658 25.2578 26.9955ZM40 29.2533C47.0391 29.2533 52.75 34.9642 52.75 42.0033V45.3236C52.75 50.9017 52.0859 56.347 51.0234 61.6595C50.8906 62.5892 49.9609 63.2533 49.0312 63.2533C47.5703 63.2533 46.6406 62.058 46.9062 60.7299C47.9688 55.683 48.5 50.5033 48.5 45.3236V42.0033C48.5 37.3549 44.6484 33.5033 40 33.5033C35.2188 33.5033 31.5 37.3549 31.5 42.0033V45.3236C31.5 50.9017 30.7031 56.4799 29.1094 61.7924C28.8438 62.722 28.0469 63.2533 27.1172 63.2533C25.6562 63.2533 24.7266 61.9252 25.125 60.4642C26.4531 55.5502 27.25 50.5033 27.25 45.3236V42.0033C27.25 34.9642 32.9609 29.2533 40 29.2533ZM42.125 42.0033V45.3236C42.125 53.9564 40.5312 62.4564 37.3438 70.558L36.5469 72.5502C36.1484 73.7455 34.9531 74.2767 33.8906 73.7455C32.6953 73.347 32.1641 72.1517 32.6953 71.0892L33.3594 68.9642C36.2812 61.5267 37.875 53.4252 37.875 45.3236V42.0033C37.875 40.9408 38.8047 39.8783 40 39.8783C41.0625 39.8783 42.125 40.9408 42.125 42.0033Z"/>
+            </svg>
+        </div>
+
+        <div class="title-sm">Touch to begin</div>
+
+      </div>
+
+  </div>
+</section>
+
+
+
+
+<script>
+  feather.replace()
+</script>
+
+<script>
+
+$(document).ready(function (){
+    $(".card-source, .menu-card").click(function(){
+    $(this).toggleClass("selected");
+    });
+});
+
+$(document).ready(function (){
+    $(".btn-boolean .btn").click(function(){
+    $(this).toggleClass("active");
+    });
+});
+
+$(document).ready(function (){
+    $(".btn-group .btn").click(function(){
+    $('.btn-group button').removeClass("active");
+    $(this).toggleClass("active");
+    });
+});
+
+$(document).ready(function (){
+    $("#disconnected-source").click(function(){
+    $(this).toggleClass("disabled");
+    $("#disconnected-source").removeClass('selected');
+
+    var element = $(this);
+    element.addClass('anim-activated');
+    setTimeout(function() {
+        element.removeClass('anim-activated');
+    }, 4000);
+    
+
+    });
+});
+
+
+
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,430 @@
+
+
+
+
+/* Selection Indicator -------------------------- */
+
+.indicator
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    --size: var(--size-3);
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--radius-round);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.indicator svg
+{
+    opacity: 0;
+    --size: var(--size-2);
+    width: var(--size);
+    height: var(--size);
+    stroke: var(--active-contrast);
+    transform: rotate(-90deg);
+    transition: var(--transition-slow);
+}
+
+.selected .indicator
+{
+    border-color: var(--active);
+    background: var(--active);
+}
+
+.selected .indicator svg
+{
+    opacity: 1 !important;
+    transform: rotate(0deg);
+}
+
+
+
+/* Buttons -------------------------- */
+
+.btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-2);
+    cursor: pointer;
+    font-size: var(--body-size);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface-1);
+    color: var(--text);
+    border: 1px solid var(--border-subtle);
+    padding: var(--size-2) var(--size-4);
+}
+
+.btn svg
+{
+    transition: none;
+}
+
+.btn:active,
+.btn.active
+{
+    background: var(--accent);
+    border-color: transparent;
+    color: var(--accent-contrast);
+    stroke: var(--accent-contrast);
+}
+
+.btn-clear
+{
+    background: transparent;
+    border: none;
+}
+
+.btn-lg
+{
+    padding: var(--size-3) var(--size-5);
+}
+
+.btn-icon-only svg
+{
+    --size: var(--size-3);
+    width: var(--size);
+    height: var(--size);
+}
+
+.btn-icon-only
+{
+    padding: var(--size-2);
+    border-radius: var(--radius-round);
+}
+
+.btn-lg.btn-icon-only
+{
+    padding: var(--size-2) var(--size-2);
+}
+
+.btn-lg.btn-icon-only svg
+{
+    --size: var(--size-5);
+    width: var(--size);
+    height: var(--size);
+}
+
+
+
+.btn-group-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: var(--size-2);
+    font-size: var(--body-size);
+    color: var(--text);
+    width: 100%;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: var(--size-1) var(--size-1) var(--size-1) var(--size-2);
+}
+
+.btn-group
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+.btn-group-wrapper:has(button:focus)
+{
+    border-color: var(--border);
+}
+
+.btn-group button
+{
+    flex-grow: 1;
+    border-radius: 0px;
+    border-width: 0px;
+    border-color: var(--border-light);
+    border-style: solid;
+    border-right-width: 1px;
+}
+
+.btn-group button:last-of-type
+{
+    border-right-width: 0px;
+}
+
+@media screen and (max-width: 800px){
+
+    .btn-group-wrapper
+    {
+        flex-direction: column;
+        padding: var(--size-2) var(--size-1) var(--size-1) var(--size-1);
+    }
+
+    .btn-group
+    {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .btn-group button
+    {
+        border-right-width: 0px;
+        border-bottom-width: 1px;
+    }
+
+    .btn-group button:last-of-type
+    {
+        border-bottom-width: 0px;
+    }
+
+}
+
+
+/* Source Card -------------------------- */
+
+.card-source
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--size-1);
+    position: relative;
+    overflow: hidden;
+    font-size: var(--body-size);
+    text-align: center;
+    border: 0px solid var(--border-light);
+    padding: var(--size-6) var(--size-3);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+}
+
+.card-source.disabled
+{
+    border-color: var(--border-subtle);
+    background: transparent;
+}
+
+.disabled .indicator
+{
+    display: none;
+}
+
+.card-source.disabled div[class*="title-"]
+{
+    color: var(--text-disabled);
+}
+
+.card-source.disabled svg
+{
+    stroke: var(--text-disabled);
+}
+
+
+.card-source.selected
+{
+    border-color: var(--border);
+}
+
+.card-source .indicator
+{
+    position: absolute;
+    top: var(--size-1);
+    right: var(--size-1);
+}
+
+.card-source .status
+{
+    top: var(--size-1);
+    right: var(--size-1);
+}
+
+.card-source .label
+{
+    font-size: var(--text);
+}
+
+.card-source .icon svg
+{
+    --size: var(--size-5);
+    width: var(--size);
+    height: var(--size);
+}
+
+
+.source-panel
+{
+    padding: var(--size-4);
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface-2);
+    margin-block: var(--size-4);
+    border: 1px solid var(--border-subtle);
+}
+
+.divider
+{
+    width: 2px;
+    background: var(--border-subtle);
+}
+
+
+
+/* Menu Card -------------------------- */
+
+.menu-card
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: var(--size-2);
+    font-size: var(--body-size);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    padding: var(--size-3) var(--size-3);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+.menu-card p
+{
+    color: var(--text-light);
+}
+
+.menu-card.disabled
+{
+    border-color: var(--border-subtle);
+}
+
+.disabled .indicator
+{
+    display: none;
+}
+
+.menu-card.disabled div[class*="title-"]
+{
+    color: var(--text-disabled);
+}
+
+.menu-card.disabled svg
+{
+    stroke: var(--text-disabled);
+}
+
+
+.menu-card.selected
+{
+    border-color: var(--accent);
+    background: var(--bg-subtle);
+}
+
+.menu-card .icon svg
+{
+    --size: var(--size-5);
+    width: var(--size);
+    height: var(--size);
+}
+
+
+
+/* Active/Connected indicator ---------------- */
+
+.status
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-1);
+}
+
+
+.card-source.active
+{
+    border-color: var(--accent);
+}
+
+.card-source.connected
+{
+    border-color: var(--border);
+}
+
+
+
+
+/* Login Button + Animation -------------------------- */
+
+.login-access
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-3);
+}
+
+.login-icon
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    padding: var(--size-6);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-round);
+    background: var(--bg-main);
+    position: relative;
+}
+
+.login-icon svg
+{
+    --size: var(--size-8);
+    width: var(--size);
+    height: var(--size);
+    fill: var(--text);
+}
+
+.login-icon::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(var(--accent) 0%, transparent 50%);
+    z-index: -1;
+    animation: loginHaze 3s ease-in-out 0s infinite both;
+    opacity: 0.66;
+}
+
+
+@keyframes loginHaze {
+    0%
+    {
+        width: 66%;
+        height: 133%;
+
+    }
+    50%
+    {
+        width: 200%;
+        height: 200%;
+
+    }
+    100%
+    {
+        width: 133%;
+        height: 66%;
+
+    }
+}
+

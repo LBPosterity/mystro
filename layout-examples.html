@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta name="Artificial Intelligence User Experience Design Patterns" content="">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Luke Bennis">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+
+
+  <title>Mystro Panel Mockup</title>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <link rel="stylesheet" href="primitive-styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="component-styles.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@200..800&family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+  section
+  {
+    width: 90%;
+    margin-inline: auto;
+    padding-block: 4vh;
+  }
+
+  .card-wrapper
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--size-1);
+  }
+
+@media screen and (max-width: 800px) {
+    .card-wrapper
+    {
+        flex-direction: column;
+    }
+}
+
+.card-wrapper .card-source
+{
+  flex-basis: 33%;
+}
+
+.card-source:nth-last-child(n+4), 
+.card-source:nth-last-child(n+4) ~ .card-source 
+{ 
+  flex: 1;
+}
+
+.card-source:nth-last-child(n+4), 
+.card-source:nth-last-child(n+4) ~ .card-source 
+{ 
+  flex: 1;
+}
+
+
+</style>
+</head>
+  
+
+<body id="mode-dark" class="brand-default">
+
+
+
+<section>
+    <div class="title">Layout Examples<br><br></div>
+    <p>Styles based on count</p>
+
+
+  <div class="card-wrapper source-panel">
+
+      <div class="card-source anim-touch">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-source anim-touch">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-source anim-touch">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-source anim-touch">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-source anim-touch">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-source anim-touch">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-source anim-touch">
+        <div class="indicator">
+          <i data-feather="check"></i>
+        </div>
+        <div class="icon">
+          <i data-feather="grid"></i>
+        </div>
+        <div class="label">
+          Card Label
+        </div>
+      </div>
+      
+
+  </div>
+
+
+</section>
+
+
+
+
+
+
+
+<script>
+  feather.replace()
+</script>
+
+<script>
+
+$(document).ready(function (){
+
+      $(".card-source").click(function(){
+      $(this).toggleClass("selected");
+      });
+
+    });
+
+    $(document).ready(function (){
+      $("#tab-web").click(function(){
+      $("#content-guide").removeClass("show");
+      $("#content-website").addClass("show");
+      });
+    });
+
+
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta name="Artificial Intelligence User Experience Design Patterns" content="">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="Luke Bennis">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+
+
+  <title>Mystro Panel Mockup</title>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <link rel="stylesheet" href="primitive-styles.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="component-styles.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@200..800&family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  section
+  {
+    width: min(1280px, 90%);
+    margin-inline: auto;
+    padding-block: 8vh;
+  }
+  
+  .volume-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--size-2);
+            width: 650px;
+            margin-inline: auto;
+        }
+
+        .volume-control.isMuted .slider-container
+        {
+            border-color: var(--error);
+        } 
+
+        .volume-control.isMuted .slider-container:before
+        {
+            content: 'Volume Muted';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .volume-control.isMuted #minusButton,
+        .volume-control.isMuted #plusButton
+        {
+            width: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            visibility: hidden;
+            overflow: hidden;
+        }
+
+        #muteButton
+        {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-0%, -50%);
+            z-index: 99;
+        }
+
+        #muteButton.muted {
+            background-color: var(--error);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 56px;
+            background-color: var(--bg-surface-1);
+            border-radius: var(--radius-round);
+            border: 1px solid transparent;
+            overflow: hidden;
+        }
+
+        #volumeSlider {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--accent);
+            border-radius: var(--radius-round);
+            overflow: hidden;
+            transition: 0s;
+        }
+
+        #sliderButton {
+            position: absolute;
+            top: 50%;
+            transform: translate(-100%, -50%);
+            cursor: grab;
+            z-index: 2;
+            transition: 0s;
+        }
+
+        #volumeDisplay {
+            margin-inline: auto;
+            font-size: 18px;
+            text-shadow: 0px 1px 2px var(--accent);
+        }
+
+        #volumeDisplay::after
+        {
+            content: '%';
+        }
+
+        .volume-control.isMuted #volumeDisplay,
+        .volume-control.isMuted #sliderButton,
+        .volume-control.isMuted #volumeSlider
+        {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
+
+
+        #volumeSlider::after
+        {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            opacity: 0.12;
+            background: url('assets/volume-graphic-3.png');
+            background-repeat: repeat-x;
+            background-position: 50% 50%;
+            background-size: 100% 100%;
+            animation: soundScroll 23s linear infinite;
+        }
+
+        #volumeSlider::before
+        {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+            background: url('assets/volume-graphic-3.png');
+            background-repeat: repeat-x;
+            background-position: 50% 100%;
+            background-size: 100% 85%;
+            animation: soundScroll 37s linear infinite;
+        }
+
+        @keyframes soundScroll {
+            from {
+                background-position: 0 50%;
+            }
+            /*use negative width if you want it to flow right to left else and positive for left to right*/
+            to {
+                background-position: -2166px 50%;
+            }
+        }
+
+
+</style>
+</head>
+  
+
+<body id="mode-dark" class="brand-default">
+
+<section>
+
+  <div class="volume-control">
+    
+    <div class="slider-container">
+        <button class="volume-button btn btn-icon-only btn-clear" id="muteButton"><i data-feather="volume-x"></i></button>
+        <div id="volumeSlider">
+            <span id="volumeDisplay">50</span>
+        </div>
+        <button class="volume-button btn btn-icon-only btn-clear" id="sliderButton"><i data-feather="volume-2"></i></button>
+
+
+    </div>
+    
+    <button class="volume-button btn btn-icon-only" id="minusButton"><i data-feather="minus"></i></button>
+    <button class="volume-button btn btn-icon-only" id="plusButton"><i data-feather="plus"></i></button>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+<script>
+  feather.replace()
+</script>
+
+<script>
+    const muteButton = document.getElementById('muteButton');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const sliderButton = document.getElementById('sliderButton');
+    const volumeDisplay = document.getElementById('volumeDisplay');
+    const sliderContainer = document.querySelector('.slider-container');
+    const minusButton = document.getElementById('minusButton');
+    const plusButton = document.getElementById('plusButton');
+    const volumeControl = document.querySelector('.volume-control');
+
+    let volume = 66;
+    let previousVolume = volume;
+    let isMuted = false;
+    let isDragging = false;
+
+    function updateSlider() {
+        volumeSlider.style.width = `${volume}%`;
+        sliderButton.style.left = `${volume}%`;
+        volumeDisplay.textContent = Math.round(volume);
+    }
+
+    function handleMute(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        if (isMuted) {
+            // Unmuting
+            isMuted = false;
+            volume = previousVolume;
+            volumeControl.classList.remove('isMuted');
+            muteButton.classList.remove('muted');
+        } else {
+            // Muting
+            isMuted = true;
+            previousVolume = volume;
+            volume = 0;
+            volumeControl.classList.add('isMuted');
+            muteButton.classList.add('muted');
+        }
+        updateSlider();
+        
+        // Prevent any mousedown events for a short period
+        sliderContainer.style.pointerEvents = 'none';
+        setTimeout(() => {
+            sliderContainer.style.pointerEvents = 'auto';
+        }, 100);
+    }
+
+    function handleMouseDown(e) {
+        // Don't initiate drag if click was on mute button
+        if (e.target.closest('#muteButton')) return;
+        
+        isDragging = true;
+        handleMouseMove(e);
+    }
+
+    function handleMouseUp() {
+        isDragging = false;
+    }
+
+    function handleMouseMove(e) {
+        if (isDragging) {
+            const rect = sliderContainer.getBoundingClientRect();
+            let newVolume = ((e.clientX - rect.left) / rect.width) * 100;
+            newVolume = Math.min(Math.max(newVolume, 0), 100);
+            volume = newVolume;
+            
+            if (volume === 0) {
+                volumeControl.classList.add('isMuted');
+                muteButton.classList.add('muted');
+                isMuted = true;
+            } else {
+                volumeControl.classList.remove('isMuted');
+                muteButton.classList.remove('muted');
+                isMuted = false;
+            }
+            
+            updateSlider();
+        }
+    }
+
+    function adjustVolume(amount) {
+        volume = Math.min(Math.max(volume + amount, 0), 100);
+        
+        if (volume === 0) {
+            volumeControl.classList.add('isMuted');
+            muteButton.classList.add('muted');
+            isMuted = true;
+        } else {
+            volumeControl.classList.remove('isMuted');
+            muteButton.classList.remove('muted');
+            isMuted = false;
+        }
+        
+        updateSlider();
+    }
+
+    // Prevent mousedown on mute button from initiating drag
+    muteButton.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+    // Event Listeners
+    muteButton.addEventListener('click', handleMute);
+    sliderButton.addEventListener('mousedown', handleMouseDown);
+    sliderContainer.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mousemove', handleMouseMove);
+    minusButton.addEventListener('click', () => adjustVolume(-5));
+    plusButton.addEventListener('click', () => adjustVolume(5));
+
+    // Initialize
+    updateSlider();
+  </script>
+
+
+</body>
+</html>
+
+
+

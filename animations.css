@@ -1,0 +1,128 @@
+
+/* Animations ----------------------------------- */
+
+
+/* Touched control - This animation scrolls a flash across the element to reinforce it's touch/selection ----------------------------------- */
+
+.anim-touch:before
+{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 400%;
+    background: linear-gradient(14deg, transparent 15%, var(--bg-surface-1) 30%, transparent 90%);
+    background-size: fill;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+
+.anim-touch.selected:before
+{
+    animation: touched 1s ease-in-out 0s 1 forwards;
+}
+
+@keyframes touched {
+    0%
+    {
+        top: 100%;
+    }
+    100%
+    {
+        top: -400%;
+    }
+}
+
+
+
+/* Connected Source/Option - This animation pulses the outline to show an option has become available. */
+
+.connected .status span
+{
+    --size: var(--size-2);
+    width: var(--size);
+    height: var(--size);
+    background: var(--active);
+    border-radius: var(--radius-round);
+    outline: 0px solid var(--active);
+    animation: activePulse 1s ease 0s infinite both;
+}
+
+.connected .status::before
+{
+    content: 'Connected';
+    font-size: 0.875rem;
+}
+
+
+@keyframes activePulse {
+    0%
+    {
+        outline-width: 0px;
+    }
+    100%
+    {
+        outline-width: var(--size-1);
+        outline-color: transparent;
+    }
+}
+
+
+
+/* Activation/Connected Pulse - This animation pulses an outline to show an element is connected, linked or active. */
+
+.anim-activated
+{
+    content: '';
+    animation: activatedShine 1s ease 0s 3 both;
+    outline-width: 1px;
+    outline-style: solid;
+}
+
+
+@keyframes activatedShine {
+    0%
+    {
+        outline-color: transparent;
+    }
+    50%
+    {
+        outline-color: var(--accent);
+        outline-width: 2px;
+    }
+    100%
+    {
+        outline-color: transparent;
+    }
+}
+
+.anim-activated .icon
+{
+    animation: iconBounce 1s ease-out 0s 1 both;
+}
+
+@keyframes iconBounce {
+    0%
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    50%
+    {
+        margin-top: calc(var(--size-1) * -1);
+        margin-bottom: var(--size-1);
+    }
+    100%
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+
+
+.disable, .disable:before, .disable:after
+{
+    animation: none !important;
+}

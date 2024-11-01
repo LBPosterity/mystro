@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .volume-control {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #muteButton {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+        #muteButton.muted {
+            background-color: #e74c3c;
+        }
+        .slider-container {
+            position: relative;
+            width: 200px;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        #volumeSlider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 10px;
+        }
+        #sliderButton {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border: 2px solid #3498db;
+            border-radius: 50%;
+            cursor: grab;
+        }
+        #volumeDisplay {
+            margin-right: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 30px;
+            text-align: center;
+        }
+        .volume-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background-color: #ddd;
+            color: #333;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .volume-button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="volume-control">
+        <button id="muteButton">🔊</button>
+        <div class="slider-container">
+            <div id="volumeSlider"></div>
+            <div id="sliderButton"></div>
+        </div>
+        <span id="volumeDisplay">50</span>
+        <button class="volume-button" id="minusButton">-</button>
+        <button class="volume-button" id="plusButton">+</button>
+    </div>
+
+    <script>
+        const muteButton = document.getElementById('muteButton');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const sliderButton = document.getElementById('sliderButton');
+        const volumeDisplay = document.getElementById('volumeDisplay');
+        const sliderContainer = document.querySelector('.slider-container');
+        const minusButton = document.getElementById('minusButton');
+        const plusButton = document.getElementById('plusButton');
+
+        let volume = 50;
+        let isMuted = false;
+        let isDragging = false;
+
+        function updateSlider() {
+            volumeSlider.style.width = `${volume}%`;
+            sliderButton.style.left = `${volume}%`;
+            volumeDisplay.textContent = Math.round(volume);
+        }
+
+        function handleMute() {
+            isMuted = !isMuted;
+            muteButton.textContent = isMuted ? '🔇' : '🔊';
+            muteButton.classList.toggle('muted', isMuted);
+            volume = isMuted ? 0 : 50;
+            updateSlider();
+        }
+
+        function handleMouseDown(e) {
+            isDragging = true;
+            handleMouseMove(e);
+        }
+
+        function handleMouseUp() {
+            isDragging = false;
+        }
+
+        function handleMouseMove(e) {
+            if (isDragging) {
+                const rect = sliderContainer.getBoundingClientRect();
+                let newVolume = ((e.clientX - rect.left) / rect.width) * 100;
+                newVolume = Math.min(Math.max(newVolume, 0), 100);
+                volume = newVolume;
+                isMuted = volume === 0;
+                muteButton.textContent = isMuted ? '🔇' : '🔊';
+                muteButton.classList.toggle('muted', isMuted);
+                updateSlider();
+            }
+        }
+
+        function adjustVolume(amount) {
+            volume = Math.min(Math.max(volume + amount, 0), 100);
+            isMuted = volume === 0;
+            muteButton.textContent = isMuted ? '🔇' : '🔊';
+            muteButton.classList.toggle('muted', isMuted);
+            updateSlider();
+        }
+
+        muteButton.addEventListener('click', handleMute);
+        sliderButton.addEventListener('mousedown', handleMouseDown);
+        sliderContainer.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('mouseup', handleMouseUp);
+        document.addEventListener('mousemove', handleMouseMove);
+        minusButton.addEventListener('click', () => adjustVolume(-5));
+        plusButton.addEventListener('click', () => adjustVolume(5));
+
+        updateSlider();
+    </script>
+</body>
+</html>
