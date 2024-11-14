@@ -218,7 +218,7 @@ section
     const plusButton = document.getElementById('plusButton');
     const volumeControl = document.querySelector('.volume-control');
 
-    let volume = 66;
+    let volume = 74.5;
     let previousVolume = volume;
     let isMuted = false;
     let isDragging = false;
@@ -226,7 +226,7 @@ section
     function updateSlider() {
         volumeSlider.style.width = `${volume}%`;
         sliderButton.style.left = `${volume}%`;
-        volumeDisplay.textContent = Math.round(volume);
+        volumeDisplay.textContent = Math.round(((volume - 25) / 75) * 100);
     }
 
     function handleMute(event) {
@@ -272,10 +272,10 @@ section
         if (isDragging) {
             const rect = sliderContainer.getBoundingClientRect();
             let newVolume = ((e.clientX - rect.left) / rect.width) * 100;
-            newVolume = Math.min(Math.max(newVolume, 0), 100);
+            newVolume = Math.min(Math.max(newVolume, 25), 100);
             volume = newVolume;
             
-            if (volume === 0) {
+            if (volume === 25) {
                 volumeControl.classList.add('isMuted');
                 muteButton.classList.add('muted');
                 isMuted = true;
@@ -290,9 +290,9 @@ section
     }
 
     function adjustVolume(amount) {
-        volume = Math.min(Math.max(volume + amount, 0), 100);
+        volume = Math.min(Math.max(volume + amount, 25), 100);
         
-        if (volume === 0) {
+        if (volume === 25) {
             volumeControl.classList.add('isMuted');
             muteButton.classList.add('muted');
             isMuted = true;
@@ -325,10 +325,7 @@ section
   </script>
 
 
-
-
 </body>
 </html>
-
 
 
